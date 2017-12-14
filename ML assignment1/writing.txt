@@ -1,0 +1,117 @@
+DATASET 1: Digit recongnition
+
+Dataset1 Description:
+This dataset was made by NIST dataset(a large written digits dataset) through extracting the normalized bitmaps of handwritten digits from a preprinted form. The original data were 32*32 bitmaps but each set of bitmaps were divided in to nonoverlapping blocks of 4*4 and the number of on pixels counted in each block. So totally it would generate an input of a 8*8 matrix to reduce the dimensionality and gives invariance to samll distortions.
+This dataset contains 5620 instances(3822 training instances and 1798 test instances) and each instance has 8*8=64 attributes with an input of the integers between 0 to 16. The labels of each instance are 0 to 9 which means the corresponding written digits. 
+
+Dataset2 Description:
+
+Overview of test
+
+As the requirement menstioned, we need implement(or steal) five Supervised Learning algorithms and they are Decision trees, Neural networks, Boosting, Support Vector Machines and k-nearest neighbors. For boosting, I chose Adaptive Boost which was mentioned in the class. 
+
+In dataset1 MNIST, each method used the 60000 training dataset and 10000 test dataset to mainly measure its running time and accuracy. The comparison of the methods were based on their default setting in Scikit Learn and the results were listed as, . But here for SVM, I would compare the normal SVM and linear SVM here. But since MNIST database is a large dataset which high dimensions of features, the detailed experiments would be based on linear SVM.
+
+Decision Trees: DTS was the fastest algorithm among all and had a not bad accuracy.
+
+K-nearest neighbors: KNN had the second best accuracy and it was . Because it only needed to add all the datas in training process so training time is not bad but however, for each test input, it had to calculate the neares k neibhbors in the dataset so it took a long time to predict the results.
+
+Support Vector Machines: In Scikit Learn, linear SVM is quite similar to SVM with a kernel of "linear". However, it was very interesting to see that SVM took the slowest time(much slower than the other one) but with the worst accuracy (actually, it was a little bit better than randomly guessing a label). But in linear SVM, the 
+total running time made a great improvment and the accuracy was close to 90%. That was quite interesting just changing the kernel of SVM.
+
+Neural Network: It was the best method for this dataset with the best accuracy and the second best training time. Since for each input, it only needed multiplying by Nerual Network matrix so predicing process was also very fast.
+
+Adapative Boosting: It had a low accuracy and had a slow running time. But in Scikit Learn, it was based on decision tree classifer, why it was had such a worse accuracy comparing to DTS?
+
+Detailed tests and experiements of each algorithm will be discussed in each section below. 
+
+
+Decision Tree:
+Bias and Variance: 
+For each set of training dataset, it would build up a whole different decision tree. So it would cause a great variance and we can see this kind of great variance in the graphs, which means there is a large green area in the cross-validation curve. 
+Moreover, since we built the decision trees by spliting the data into different sets so the decision trees prefer a shorter tree with a good split at the start and the correct answers. But however, decision trees only care about what can be represented by the tree and split by the boolean value so it's the restriction bias of decision tree.
+
+Performance and Accuracy:
+
+Model Complexity:
+Dataset1:
+In fic, we can know that as max depth of the tree increases, both training error and Cross-validation error increase until max depth equals to about 13 so the best model should be with the max depth of 13. However, we couldn't see overfitting point here. It was because that the max depth of the approximately best decision tree was about 15, which means after this height the tree would not split again. Moreover, according the shorter the better, these trees were simple enough because of not enough examples for 64 features of each instance, which increased the confidence of the data and avoid the overfitting point. However, the test data error was high due to too many test cases, where "many" means the comparison to the training data.
+
+Dataset2:
+In this dataset, we didn't see 
+
+Learning Curves:
+
+Conclusions:
+
+
+KNN:
+Bias and Variance:
+Since for each set of traning dataset but the same input data, the neighbors of this input would always be different so it causes the variance for the KNN method. Just as the graphs show, the smaller the k is, the more it would become overfitting and if k==1, it must be overfitting because of the high variance.
+As its name means, KNN's key idea is to find the nearest neighbors, to it prefers the data that the near points are "similar" according to a good distance function. The same reason, the expectation of smoothing functions are preferred by KNN. Last, because it needs to measure the distance between points so all features are better to be matter equally.  
+Because this algorithm depends on the selection of k, it could not work if k is larger than the dataset number.
+
+Performance and Accuracy:
+
+Model Complexity:
+Here I used 1/k in x-axis instead of k because the smaller k is, the easier to become overfitting. As the result, the scale of x-axis was log(x).
+Dataset1:
+Here again, we didn't find the obvious over-fitting point and we could see that even in k = 1, it had an excellent result. Except the reason of small amount of training instances, I think it was because the clustring of this kind of this dataset was great and each feature could contribute a equal distance valuation. That's why the test error was quite slow even if it was such a large amount of test data. So in my opinion, I would choose k=1 as best model regarding to the distribution area of the data.
+
+Dataset2:
+Compared to dataset1, the divergence of training curve and CV(Cross-Validation) curve was very obvious. And when k = 1, the overfitting was the worse. Therefore, we could choose k = 10 as the best model for this dataset to  
+
+Learning Curves:
+
+Conclusions:
+
+SVM:
+Bias and Variance:
+The data of different dataset will get different support vectors to build the machines, which causes the main variance by different training dataset. Also, if you change the kernel types or kernel size, it will produce a new support vector machines.
+Since SVM would find the division of the data, so the margins between different labels are the bigger, the better and SVM dislikes the datas with an unclear margins. As the result of that we need to find the margins, this method is very sensitive to the noise.
+
+Performance and Accuracy:
+
+Model Complexity:
+In dataset1
+Learning Curves:
+
+Conclusions:
+
+Boost:
+Bias and Variance:
+Boosting makes a lot of simple classifers (weak learners) to combine into a complex model(strong learner). With different training as input, the combination result of the weak learners of each iteration would be different and it will cause a huge variance especially when the weak learners doesn't fit to the data.
+The bias of Boost is based on its formulation of the weak learners and Boosting can strengthen this kind of preference or restriction bias. Moreover, boosting is very sensitive to outliers in a dataset, which easily makes error happen during the iteration of combining the weak learners.
+
+Performance and Accuracy:
+
+Model Complexity:
+
+Learning Curves:
+
+Conclusions:
+
+Neural Network:
+Bias and Variance:
+The objective of Neural Network is to approximate or descripte a function according to the training data. As the result, the variance occurs because different data is training a different function.
+According to the building process, Neural Network needs small random values of intitial weights. Moreover it prefers simpler explanations to simulate continuous and smoothing function. 
+Thanks to the help of hidden layers and their units, Neural Network can simulate complex models using lots of units so it seems that there is not much restriction but it is also dangerous to cause overfitting.
+However, if the objective function is not continuous or has a sudden jump, Neural Network cannot done a good job.
+
+
+Performance and Accuracy:
+
+Model Complexity:
+
+Learning Curves:
+
+Conclusions:
+
+
+confidence, strong believe
+
+
+Conclusion and Argument:
+This database reminds me of my experience of learning how to program. The first thing that
+
+MNIST is a basic database for Computer Vision and it has many different kinds of hand written digits images such as shown in, .Each image has a label to tell us its digit number from 0-9. The MNIST dataset has two parts: 60000 training data and 10000 test data. Each element of the dataset is centered in a 28*28 image and each pixel values from 0-255, which means the grayscale of this pixel. As the result, we can reduce the 2-dimension matrix to 1-dimension array so we have 28*28=784 features totally for each image of the dataset. 

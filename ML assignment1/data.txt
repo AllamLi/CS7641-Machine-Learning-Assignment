@@ -1,0 +1,36 @@
+Data Set 1:
+DT: 
+training time: 28.64s
+predicting time: 0.03s
+total time: 28.66s
+accuracy: 87.76%
+
+KNN:
+training time: 48.73s
+predicting time: 718.52s
+total time: 767.25s
+accuracy: 96.88%
+
+SVM:
+training time: 15149.96s
+predicting time: 511.86s
+total time: 15661.82s
+accuracy: 11.35%
+
+linearSVM:
+training time: 182.39s
+predicting time: 0.03s
+total time: 182.43s
+accuracy: 88.68%
+
+NN:training time: 40.40s
+predicting time: 0.08s
+total time: 40.48s
+accuracy: 97.58%
+
+Boost:
+training time: 76.26s
+predicting time: 0.43s
+total time: 76.69s
+accuracy: 72.99%
+
