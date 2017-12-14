@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LPSOLVESolverPack-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/burlap/burlap-repo/org/scpsolver/LPSOLVESolverPack/1.0/LPSOLVESolverPack-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

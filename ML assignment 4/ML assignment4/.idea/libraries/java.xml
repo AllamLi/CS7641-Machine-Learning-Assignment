@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="java">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/burlap/src/main/java" />
+      <root url="file://$PROJECT_DIR$/burlap/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

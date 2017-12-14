@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SCPSolver-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/burlap/burlap-repo/org/scpsolver/SCPSolver/1.0/SCPSolver-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

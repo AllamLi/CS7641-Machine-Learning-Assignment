@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="org.kie.modules:org-apache-commons-lang3:6.5.0.Final" type="repository">
+    <properties maven-id="org.kie.modules:org-apache-commons-lang3:6.5.0.Final" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.1/commons-lang3-3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

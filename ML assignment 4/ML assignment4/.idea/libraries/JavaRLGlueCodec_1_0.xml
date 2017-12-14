@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JavaRLGlueCodec-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/burlap/burlap-repo/org/rlcommunity/rlglue/JavaRLGlueCodec/1.0/JavaRLGlueCodec-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
